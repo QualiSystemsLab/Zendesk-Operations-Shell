@@ -1,0 +1,110 @@
+<Driver Description="Describe the purpose of your CloudShell shell" MainClass="driver.ZendeskOperationsShellDriver" Name="ZendeskOperationsShellDriver" Version="1.0.0">
+    <Layout>
+         <Category Name="Hidden Commands">
+            <Command Description="" DisplayName="Orchestration Save" Name="orchestration_save" />
+            <Command Description="" DisplayName="Orchestration Restore" Name="orchestration_restore" />
+            <Command Description="" DisplayName="Create A Session Save" Name="create_a_session" />
+            <Command Description="" DisplayName="Get Global Inputs" Name="get_global_inputs" />
+            <Command Description="" DisplayName="Get Tickets Vector" Name="get_tickets_vector" />
+            <Command Description="" DisplayName="Get Users Vector" Name="get_users_vector" />
+            <Command Description="" DisplayName="Suspend Function" Name="suspend_function" />
+            <Command Description="" DisplayName="UnSuspend Function" Name="unsuspend_function" />
+            <Command Description="" DisplayName="Add Comment And Close The Ticket" Name="add_comment_and_close_the_tickets" />
+            <Command Description="" DisplayName="Get Users Vectors" Name="get_users_vectors" />
+        </Category>
+        <Category Name="Zendesk Operations">
+            <Command Description="Updating Global Inputs" DisplayName="Update Global Inputs" Name="update_global_inputs" >
+                <Parameters>
+                    <Parameter Name="input_user_mail" Type="String" Mandatory = "True" DefaultValue="" DisplayName="User Email"
+                               Description="Enter User Email"/>
+                    <Parameter Name="input_user_pwd" Type="String" Mandatory = "True" DefaultValue="" DisplayName="User Password"
+                               Description="Enter User Password"/>
+                </Parameters>
+            </Command>
+            <Command Description="Creating A New User" DisplayName="Create A New User" Name="create_a_new_user" >
+                <Parameters>
+                    <Parameter Name="input_user_name" Type="String" Mandatory = "True" DefaultValue="" DisplayName="User Name"
+                               Description="Enter User Name"/>
+                    <Parameter Name="input_user_email" Type="String" Mandatory = "True" DefaultValue="" DisplayName="User Email"
+                               Description="Enter User Email"/>
+                    <Parameter Name="input_user_role" Type="String" Mandatory = "False" DefaultValue="" DisplayName="User Role"
+                               Description="Enter User Role"/>
+                    <Parameter Name="input_user_org" Type="String" Mandatory = "False" DefaultValue="" DisplayName="User Organization ID"
+                               Description="Enter User Organization ID"/>
+                </Parameters>
+            </Command>
+            <Command Description="Getting User ID By Name" DisplayName="Get User ID By Name" Name="get_user_id_by_name" >
+                <Parameters>
+                    <Parameter Name="input_user_name" Type="String" Mandatory = "True" DefaultValue="" DisplayName="User Name"
+                               Description="Enter User Name"/>
+                </Parameters>
+            </Command>
+            <Command Description="Getting Organization ID By Name" DisplayName="Get Organization ID By Name" Name="get_organization_id_by_name" >
+                <Parameters>
+                    <Parameter Name="input_org_name" Type="String" Mandatory = "True" DefaultValue="" DisplayName="Organization Name"
+                               Description="Enter Organization Name"/>
+                </Parameters>
+            </Command>
+            <Command Description="Getting All User Tickets" DisplayName="Get All User Tickets" Name="get_all_user_tickets" >
+                <Parameters>
+                    <Parameter Name="user_id" Type="String" Mandatory = "True" DefaultValue="" DisplayName="User ID"
+                               Description="Enter User ID"/>
+                </Parameters>
+            </Command>
+            <Command Description="Getting All Organization Tickets" DisplayName="Get All Organization Tickets" Name="get_all_organization_tickets" >
+                <Parameters>
+                    <Parameter Name="org_id" Type="String" Mandatory = "True" DefaultValue="" DisplayName="Organization ID"
+                               Description="Enter Organization ID"/>
+                </Parameters>
+            </Command>
+            <Command Description="Getting All Organization Users" DisplayName="Get All Organization Users" Name="get_all_organization_users" >
+                <Parameters>
+                    <Parameter Name="org_id" Type="String" Mandatory = "True" DefaultValue="" DisplayName="Organization ID"
+                               Description="Enter Organization ID"/>
+                </Parameters>
+            </Command>
+            <Command Description="Suspending A User And Closing All His Tickets" DisplayName="Suspend A User And Close All His Tickets" Name="suspend_a_user_and_close_all_his_tickets" >
+                <Parameters>
+                    <Parameter Name="user_id" Type="String" Mandatory = "True" DefaultValue="" DisplayName="User ID"
+                               Description="Enter User ID"/>
+                    <Parameter Name="input_key" Type="String" Mandatory = "False" DefaultValue="" DisplayName="Enter Validation Key For Closing All The Tickets"
+                               Description="Enter Validation Key And Please Make Sure You Entered The Correct User ID. You Can Validate The User ID Number By Using The 'Get User ID By Name' Command (1234321)"/>
+                </Parameters>
+            </Command>
+            <Command Description="UnSuspending A User" DisplayName="UnSuspend A User" Name="unsuspend_a_user" >
+                <Parameters>
+                    <Parameter Name="user_id" Type="String" Mandatory = "True" DefaultValue="" DisplayName="User ID"
+                               Description="Enter User ID"/>
+                </Parameters>
+            </Command>
+            <Command Description="Suspending All Organization Users And Closing All Its Tickets" DisplayName="Suspend All Organization Users And Close All Its Tickets" Name="suspend_all_organization_users_and_close_all_its_tickets" >
+                <Parameters>
+                    <Parameter Name="org_id" Type="String" Mandatory = "True" DefaultValue="" DisplayName="Organization ID"
+                               Description="Enter Organization ID"/>
+                    <Parameter Name="input_key" Type="String" Mandatory = "False" DefaultValue="" DisplayName="Enter Validation Key For Closing All The Tickets"
+                               Description="Enter Validation Key And Please Make Sure You Entered The Correct Organization ID. You Can Validate The Organization ID Number By Using The 'Get Organization ID By Name' Command (1234321)"/>
+                </Parameters>
+            </Command>
+            <Command Description="UnSuspending All Organization Users" DisplayName="UnSuspend All Organization Users" Name="unsuspend_all_organization_users" >
+                <Parameters>
+                    <Parameter Name="org_id" Type="String" Mandatory = "True" DefaultValue="" DisplayName="Organization ID"
+                               Description="Enter Organization ID"/>
+                </Parameters>
+            </Command>
+            <Command Description="Getting All Active Users From A Specific Date" DisplayName="Get All Active Users From A Specific Date" Name="Get_all_users_who_have_loggedIn_since_entered_date" >
+                <Parameters>
+                    <Parameter Name="user_input_date" Type="String" Mandatory = "True" DefaultValue="01/01/2017" DisplayName="Enter Date (Format %d/%m/%Y)"
+                               Description="Enter The Date From Which To Search"/>
+                    <Parameter Name="user_validation_key" Type="String" Mandatory = "False" DefaultValue="" DisplayName="Enter Validation Key For Suspending UnActive Users"
+                               Description="Enter Validation Key(1234321)"/>
+                </Parameters>
+            </Command>
+            <Command Description="UnSuspending All Users From Vector" DisplayName="UnSuspend All Users From Vector" Name="unsuspend_all_users_from_users_id_vector" >
+                <Parameters>
+                    <Parameter Name="users_id_vector" Type="String" Mandatory = "True" DefaultValue="" DisplayName="Users Vector"
+                               Description="Enter Users Vector"/>
+                </Parameters>
+            </Command>
+        </Category>
+    </Layout>
+</Driver>
